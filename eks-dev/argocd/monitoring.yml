@@ -4,7 +4,7 @@ metadata:
   name: eks-dev-monitoring
   namespace: argocd
 spec:
-  project: eks-dev-monitoring
+  project: default
 
   source:
     repoURL: https://github.com/ffreville/argo-test.git
@@ -12,12 +12,9 @@ spec:
     path: eks-dev/monitoring
   destination: 
     server: https://kubernetes.default.svc
-    namespace: fred-monitoring
+    namespace: default
 
   syncPolicy:
-    syncOptions:
-    - CreateNamespace=true
-
     automated:
       selfHeal: true
       prune: true
